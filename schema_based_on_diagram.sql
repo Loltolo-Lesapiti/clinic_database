@@ -1,4 +1,4 @@
---Database
+--Creating a clinic Database
 CREATE DATABASE clinic_db;
 
 -- Patient table
@@ -45,3 +45,17 @@ CREATE TABLE treatments(
     treatment_id INT REFERENCES treatments(id),
     PRIMARY KEY(id)
     );
+--All joined table for many to many realtionship
+  CREATE TABLE medical_histories_has_treatments (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    medical_id INT REFERENCES medical_history(id),
+    treatment_id INT REFERENCES treatments(id)
+    description VARCHAR(255) not null,
+    );
+
+-- Foreign keys indexs
+    CREATE INDEX ON medical_history (patient_id);
+    CREATE INDEX ON invoices (medical_history_id);
+    CREATE INDEX ON invoice_items(invoice_id); 
+    CREATE INDEX ON invoice_items(treatment_id);
+    CREATE INDEX ON medical_histories_has_treatments(medical_id);
