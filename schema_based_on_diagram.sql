@@ -49,8 +49,8 @@ CREATE TABLE treatments(
   CREATE TABLE medical_histories_has_treatments (
     id INT GENERATED ALWAYS AS IDENTITY,
     medical_id INT REFERENCES medical_history(id),
-    treatment_id INT REFERENCES treatments(id)
-    description VARCHAR(255) not null,
+    treatment_id INT REFERENCES treatments(id),
+    description VARCHAR(255) not null
     );
 
 -- Foreign keys indexs
