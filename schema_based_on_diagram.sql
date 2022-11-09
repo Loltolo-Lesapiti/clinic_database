@@ -1,4 +1,4 @@
---Database
+--Creating a clinic Database
 CREATE DATABASE clinic_db;
 
 -- Patient table
